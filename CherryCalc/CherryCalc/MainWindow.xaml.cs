@@ -20,9 +20,28 @@ namespace CherryCalc
     /// </summary>
     public partial class MainWindow : Window
     {
+        CherryModel cherryModel = new CherryModel();
+
         public MainWindow()
         {
             InitializeComponent();
+            InitialButtons();
         }
+
+        public void InitialButtons()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                Button button = new Button();
+                cherryModel._numericalBtns.Add(button);
+            }
+            
+            
+        }
+    }
+
+    public class CherryModel
+    {
+       public static List<Button> _numericalBtns = new List<Button>();
     }
 }
