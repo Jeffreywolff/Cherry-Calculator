@@ -56,7 +56,7 @@ namespace CherryCalc
         public void InitialNumpadButtons()
         {
             Button doubleZero = new Button();
-            doubleZero.Content = 00;
+            doubleZero.Content = "00";
             doubleZero.Background = new SolidColorBrush(Color.FromArgb(75, 40, 78, 217));
             cherryModel._numericalBtns.Add(doubleZero);
 
@@ -64,13 +64,13 @@ namespace CherryCalc
             {
                 Button numButton = new Button();
                 numButton.Content = i;
-                numButton.Background = new SolidColorBrush(Color.FromArgb(75, 40, 78, 217));
+                //numButton.Background = new SolidColorBrush(Color.FromArgb(120, 21, 35, 26));
                 cherryModel._numericalBtns.Add(numButton);
             }
 
             Button pointBtn = new Button();
             pointBtn.Content = ".";
-            pointBtn.Background = new SolidColorBrush(Color.FromArgb(75, 40, 78, 217));
+           
             cherryModel._numericalBtns.Insert(2, pointBtn);
 
         }
@@ -90,7 +90,7 @@ namespace CherryCalc
             }
 
             MainGrid.Children.Add(Numpad);
-            Grid.SetRow(MainGrid.Children[0], 1);
+            Grid.SetRow(MainGrid.Children[2], 1);
         }
     }
 
