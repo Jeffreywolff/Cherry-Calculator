@@ -12,6 +12,7 @@
             <Setter Property="Foreground" Value="#fff"></Setter>
             <Setter Property="BorderThickness" Value="2"></Setter>
             <Setter Property="BorderBrush" Value="#000"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
             
         </Style>
         
@@ -25,7 +26,7 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" FontSize="35" TextAlignment="Right" Padding="20"  Foreground="#fff">
+        <TextBlock Grid.Row="0" FontSize="35" TextAlignment="Right" Padding="20"  Foreground="#fff" Name="InOutField">
             <TextBlock.Background>
                 <LinearGradientBrush  StartPoint="0.5,0" EndPoint="0.5,1" >
                     <GradientStop Color="#862548" Offset="0.4"/>
@@ -35,7 +36,7 @@
             </TextBlock.Background>
         </TextBlock>
 
-        <Button Content="=" FontSize="60" FontWeight="Bold" Grid.Row="2" BorderBrush="Black" BorderThickness="2" Foreground="#c63e46"/>
+        <Button Content="Execute" FontSize="30" FontWeight="Bold" Grid.Row="2" BorderBrush="Black" BorderThickness="2" Foreground="#c63e46" Click="Button_Click"/>
 
 
     </Grid>

@@ -30,7 +30,16 @@ namespace CherryCalc
             InitializeComponent();
             InitializeNumpadButtons();
             InitializeOperatorButtons();
+            SetOnButtonClick(cherryModel._numericalBtns);
             SetupNumpad();
+        }
+
+        private void SetOnButtonClick(List<Button> list)
+        {
+            foreach (var button in list)
+            {
+                button.Click += Button_Click;
+            }
         }
 
         private void SetupNumpad()
@@ -59,20 +68,19 @@ namespace CherryCalc
         {
             Button doubleZero = new Button();
             doubleZero.Content = "00";
-            doubleZero.Background = new SolidColorBrush(Color.FromArgb(75, 40, 78, 217));
             cherryModel._numericalBtns.Add(doubleZero);
 
             for (int i = 0; i < 10; i++)
             {
-                Button numButton = new Button();
-                numButton.Content = i;
-                //numButton.Background = new SolidColorBrush(Color.FromArgb(120, 21, 35, 26));
-                cherryModel._numericalBtns.Add(numButton);
+                Button numBtn = new Button();
+                numBtn.Content = i;
+                numBtn.Name = $"numBtn{i}";
+                cherryModel._numericalBtns.Add(numBtn);
+
             }
 
             Button pointBtn = new Button();
             pointBtn.Content = ".";
-           
             cherryModel._numericalBtns.Insert(2, pointBtn);
 
         }
@@ -85,26 +93,36 @@ namespace CherryCalc
             var divideBtn = new Button();
             var sqrtBtn = new Button();
             var clearBtn = new Button();
-            var plusMinusBtn = new Button();
+            var toThePowerBtn = new Button();
             var percentBtn = new Button();
 
+            // Plus sign button properties
             plusBtn.Content = "+";
+            // Minus sign button properties
             minusBtn.Content = "-";
+            // Multiply sign button properties
             multiplyBtn.Content = "x";
+            // Divíde sign button properties
             divideBtn.Content = "÷";
+            // Squareroot sign button properties
             sqrtBtn.Content = "√";
+            //Clear button sign button properties
             clearBtn.Content = "C";
-            plusMinusBtn.Content = "±";
+            // To the power of sign button properties
+            toThePowerBtn.Content = "xⁿ";
+            // Percentage sign button properties
             percentBtn.Content = "%";
+
 
             cherryModel._numericalBtns.Insert(3, plusBtn);
             cherryModel._numericalBtns.Insert(7, minusBtn);
             cherryModel._numericalBtns.Insert(11, multiplyBtn);
             cherryModel._numericalBtns.Insert(15, divideBtn);
             cherryModel._numericalBtns.Insert(16, clearBtn);
-            cherryModel._numericalBtns.Insert(17, plusMinusBtn);
+            cherryModel._numericalBtns.Insert(17, toThePowerBtn);
             cherryModel._numericalBtns.Insert(18, percentBtn);
             cherryModel._numericalBtns.Insert(19, sqrtBtn);
+
 
         }
 
@@ -125,6 +143,69 @@ namespace CherryCalc
 
             MainGrid.Children.Add(Numpad);
             Grid.SetRow(MainGrid.Children[2], 1);
+        }
+
+        public void Button_Click(object sender, RoutedEventArgs e)
+        {
+            
+            if (sender is Button btn)
+            {
+
+
+                switch (btn.Content)
+                {
+                    case "00":
+                    case "0":
+                    case "1":
+                    case "2":
+                    case "3":
+                    case "4":
+                    case "5":
+                    case "6":
+                    case "7":
+                    case "8":
+                    case "9":
+                    case "+":
+                    case "-":
+                    case "x":
+                    case "÷":
+                    case "√":
+                    case "xⁿ":
+                    case "%":
+                        InOutField.Text += btn.Content;
+                        break;
+                    case "Execute":
+                        if (InOutField.Text.Contains("+"))
+                        {
+                            string[] numParameters = InOutField.Text.Split('+');
+                            double[] doubleParam = Array.ConvertAll(numParameters, double.Parse);
+                            double sum = doubleParam.Sum();
+                            string sumView = sum.ToString();
+                            InOutField.Text = sumView;
+                        }
+
+                        else if (InOutField.Text.Contains("-"))
+                        {
+                            string[] numParameters = InOutField.Text.Split('-');
+                            double[] doubleParam = Array.ConvertAll(numParameters, double.Parse);
+                            double sum = doubleParam[0] - doubleParam[1];
+                            string sumView = sum.ToString();
+                            InOutField.Text = sumView;
+                        }
+
+                        break;
+                    case "C":
+                        InOutField.Text = "";
+                        break;
+                    default:
+                        break;
+                }
+
+
+
+
+
+            }
         }
     }
 
