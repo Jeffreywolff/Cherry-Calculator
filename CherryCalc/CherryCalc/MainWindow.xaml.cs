@@ -74,7 +74,6 @@ namespace CherryCalc
             {
                 Button numBtn = new Button();
                 numBtn.Content = i;
-                numBtn.Name = $"numBtn{i}";
                 cherryModel._numericalBtns.Add(numBtn);
 
             }
