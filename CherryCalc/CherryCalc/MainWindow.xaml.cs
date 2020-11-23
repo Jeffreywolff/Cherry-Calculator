@@ -174,44 +174,28 @@ namespace CherryCalc
                     case "Execute":
                         if (InOutField.Text.Contains("+"))
                         {
-                            string[] numParameters = InOutField.Text.Split('+');
-                            double[] doubleParam = Array.ConvertAll(numParameters, double.Parse);
-                            double sum = doubleParam.Sum();
-                            string sumView = sum.ToString();
-                            InOutField.Text = sumView;
+                            InOutField.Text = operatorAlgorithm('+');
                         }
 
                         else if (InOutField.Text.Contains("-"))
                         {
-                            string[] numParameters = InOutField.Text.Split('-');
-                            double[] doubleParam = Array.ConvertAll(numParameters, double.Parse);
-                            double sum = doubleParam[0] - doubleParam[1];
-                            string sumView = sum.ToString();
-                            InOutField.Text = sumView;
+                            InOutField.Text = operatorAlgorithm('-');
                         }
 
                         else if (InOutField.Text.Contains("x"))
                         {
-                            string[] numParameters = InOutField.Text.Split('x');
-                            double[] doubleParam = Array.ConvertAll(numParameters, double.Parse);
-                            double product = doubleParam[0] * doubleParam[1];
-                            string productView = product.ToString();
-                            InOutField.Text = productView;
+                            InOutField.Text = operatorAlgorithm('x');
                         }
 
                         else if (InOutField.Text.Contains("÷"))
                         {
-                            string[] numParameters = InOutField.Text.Split('÷');
-                            double[] doubleParam = Array.ConvertAll(numParameters, double.Parse);
-                            double quotient = doubleParam[0] / doubleParam[1];
-                            string quotientView = quotient.ToString();
-                            InOutField.Text = quotientView;
+                            InOutField.Text = operatorAlgorithm('÷');
                         }
 
                         else if (InOutField.Text.Contains("^"))
                         {
                             string[] numParameters = InOutField.Text.Split('^');
-                            double[] doubleParam = Array.ConvertAll(numParameters, double.Parse);
+                            double[] doubleParam = Array.ConvertAll(numParameters, Convert.ToDouble);
                             double product = Math.Pow(doubleParam[0], doubleParam[1]);
                             string productView = product.ToString();
                             InOutField.Text = productView;
@@ -244,6 +228,38 @@ namespace CherryCalc
 
 
             }
+        }
+
+        public string operatorAlgorithm(char inOperator)
+        {
+            var result = 0.0;
+
+            var calcParameters = InOutField.Text.Split('+', '-', 'x', '÷');
+            var firstNumber = Convert.ToDouble(calcParameters[0]);
+            var secondNumber = Convert.ToDouble(calcParameters[1]);
+
+            switch (inOperator)
+            {
+                case '+':
+                    result = firstNumber + secondNumber;
+                    break;
+                case '-':
+                    result = firstNumber - secondNumber;
+                    break;
+                case 'x':
+                    result = firstNumber * secondNumber;
+                    break;
+                case '÷':
+                    result = firstNumber / secondNumber;
+                    break;
+
+                default:
+                    break;
+            }
+
+            var resultView = Convert.ToString(result);
+
+            return resultView;
         }
     }
 
