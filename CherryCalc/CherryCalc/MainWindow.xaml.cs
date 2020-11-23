@@ -42,6 +42,9 @@ namespace CherryCalc
             }
         }
 
+        /// <summary>
+        /// Creates the grid for the buttons.
+        /// </summary>
         private void SetupNumpad()
         {
             Numpad = new Grid();
@@ -64,6 +67,9 @@ namespace CherryCalc
             SetButtonPosition();            
         }
 
+        /// <summary>
+        /// Creates the buttons for the calculators numpad.
+        /// </summary>
         public void InitializeNumpadButtons()
         {
             Button doubleZero = new Button();
@@ -84,6 +90,9 @@ namespace CherryCalc
 
         }
 
+        /// <summary>
+        /// Creates the operator buttons and adds them to a list.
+        /// </summary>
         public void InitializeOperatorButtons()
         {
             var plusBtn = new Button();
@@ -100,7 +109,7 @@ namespace CherryCalc
             // Minus sign button properties
             minusBtn.Content = "-";
             // Multiply sign button properties
-            multiplyBtn.Content = "x";
+            multiplyBtn.Content = "×";
             // Divíde sign button properties
             divideBtn.Content = "÷";
             // Squareroot sign button properties
@@ -123,7 +132,9 @@ namespace CherryCalc
             cherryModel._numericalBtns.Insert(19, deleteBtn);
 
         }
-
+        /// <summary>
+        ///  Sets the position of the buttons
+        /// </summary>
         public void SetButtonPosition()
         {
             var buttonIndex = 0;
@@ -143,6 +154,12 @@ namespace CherryCalc
             Grid.SetRow(MainGrid.Children[2], 1);
         }
 
+        /// <summary>
+        /// When a button is clicked it it's content will appear in The textbox.
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void Button_Click(object sender, RoutedEventArgs e)
         {
             
@@ -165,43 +182,43 @@ namespace CherryCalc
                     case "9":
                     case "+":
                     case "-":
-                    case "x":
+                    case "×":
                     case "÷":
                     case "√":
-                    case ".":
                         InOutField.Text += btn.Content;
                         break;
                     case "Execute":
-                        if (InOutField.Text.Contains("+"))
+                        if (InOutField.Text.Contains('+'))
                         {
-                            InOutField.Text = operatorAlgorithm('+');
+                            InOutField.Text = basicOperatorAlgorithm('+');
                         }
 
-                        else if (InOutField.Text.Contains("-"))
+                        else if (InOutField.Text.Contains('-'))
                         {
-                            InOutField.Text = operatorAlgorithm('-');
+                            InOutField.Text = basicOperatorAlgorithm('-');
                         }
 
-                        else if (InOutField.Text.Contains("x"))
+                        else if (InOutField.Text.Contains('×'))
                         {
-                            InOutField.Text = operatorAlgorithm('x');
+                            InOutField.Text = basicOperatorAlgorithm('×');
                         }
 
-                        else if (InOutField.Text.Contains("÷"))
+                        else if (InOutField.Text.Contains('÷'))
                         {
-                            InOutField.Text = operatorAlgorithm('÷');
+                            InOutField.Text = basicOperatorAlgorithm('÷');
                         }
 
-                        else if (InOutField.Text.Contains("^"))
+                        else if (InOutField.Text.Contains('^'))
                         {
-                            string[] numParameters = InOutField.Text.Split('^');
-                            double[] doubleParam = Array.ConvertAll(numParameters, Convert.ToDouble);
-                            double product = Math.Pow(doubleParam[0], doubleParam[1]);
-                            string productView = product.ToString();
-                            InOutField.Text = productView;
+                            InOutField.Text = basicOperatorAlgorithm('^');
+                        }
+                        else if (InOutField.Text.Contains('√'))
+                        {
+                            InOutField.Text = basicOperatorAlgorithm('√');
                         }
 
                         break;
+
                     case "C":
                         InOutField.Text = "";
                         break;
@@ -216,9 +233,26 @@ namespace CherryCalc
                             break;
                         }
                     case "xⁿ":
-                        InOutField.Text += "^";
+                        if (InOutField.Text == "")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            InOutField.Text += '^';
+                        }
                         break;
-
+                    case ".":
+                        InOutField.Text += btn.Content;
+                        if (InOutField.Text.IndexOf('.')-1 < 0)
+                        {
+                            InOutField.Text = "0.";
+                        }
+                        else
+                        {
+                            break;
+                        }
+                        break;
                     default:
                         break;
                 }
@@ -230,11 +264,20 @@ namespace CherryCalc
             }
         }
 
-        public string operatorAlgorithm(char inOperator)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="inOperator"> Is an input given when called, type is char.</param>
+        /// <returns> Returns a string with the result</returns>
+        public string basicOperatorAlgorithm(char inOperator)
         {
             var result = 0.0;
 
-            var calcParameters = InOutField.Text.Split('+', '-', 'x', '÷');
+            var calcParameters = InOutField.Text.Split('+', '-', '×', '÷', '^', '√');
+            if (calcParameters[0] == "")
+            {
+                calcParameters[0] = "1";
+            }
             var firstNumber = Convert.ToDouble(calcParameters[0]);
             var secondNumber = Convert.ToDouble(calcParameters[1]);
 
@@ -246,11 +289,18 @@ namespace CherryCalc
                 case '-':
                     result = firstNumber - secondNumber;
                     break;
-                case 'x':
+                case '×':
                     result = firstNumber * secondNumber;
                     break;
                 case '÷':
                     result = firstNumber / secondNumber;
+                    break;
+                case '^':
+                    result = Math.Pow(firstNumber, secondNumber);
+                    break;
+                case '√':
+                    firstNumber = 0;
+                    result = Math.Sqrt(secondNumber);
                     break;
 
                 default:
@@ -263,6 +313,9 @@ namespace CherryCalc
         }
     }
 
+    /// <summary>
+    /// A class to store variables and lists. Can be developed.
+    /// </summary>
     public class CherryModel
     {
        public List<Button> _numericalBtns = new List<Button>();
