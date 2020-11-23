@@ -9,7 +9,7 @@
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Background" Value="#1E202A"></Setter>
-            <Setter Property="Foreground" Value="#fff"></Setter>
+            <Setter Property="Foreground" Value="#f9ff00"></Setter>
             <Setter Property="BorderThickness" Value="2"></Setter>
             <Setter Property="BorderBrush" Value="#000"></Setter>
             <Setter Property="FontSize" Value="20"></Setter>
@@ -29,14 +29,14 @@
         <TextBlock Grid.Row="0" FontSize="35" TextAlignment="Right" Padding="20"  Foreground="#fff" Name="InOutField">
             <TextBlock.Background>
                 <LinearGradientBrush  StartPoint="0.5,0" EndPoint="0.5,1" >
-                    <GradientStop Color="#862548" Offset="0.4"/>
+                    <GradientStop Color="#000000" Offset="0.4"/>
 
-                    <GradientStop Color="#c63e46" Offset="0.8"/>
+                    <GradientStop Color="#929500"  Offset="0.9"/>
                 </LinearGradientBrush>
             </TextBlock.Background>
         </TextBlock>
 
-        <Button Content="Execute" FontSize="30" FontWeight="Bold" Grid.Row="2" BorderBrush="Black" BorderThickness="2" Foreground="#c63e46" Click="Button_Click"/>
+        <Button Content="Execute" FontSize="30" FontWeight="Bold" Grid.Row="2" BorderBrush="Black" BorderThickness="2" Foreground="#f9ff00" Click="Button_Click"/>
 
 
     </Grid>

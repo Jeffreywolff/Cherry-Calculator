@@ -73,7 +73,7 @@ namespace CherryCalc
             for (int i = 0; i < 10; i++)
             {
                 Button numBtn = new Button();
-                numBtn.Content = i;
+                numBtn.Content = "" + i;
                 cherryModel._numericalBtns.Add(numBtn);
 
             }
@@ -93,7 +93,7 @@ namespace CherryCalc
             var sqrtBtn = new Button();
             var clearBtn = new Button();
             var toThePowerBtn = new Button();
-            var percentBtn = new Button();
+            var deleteBtn = new Button();
 
             // Plus sign button properties
             plusBtn.Content = "+";
@@ -110,7 +110,7 @@ namespace CherryCalc
             // To the power of sign button properties
             toThePowerBtn.Content = "xⁿ";
             // Percentage sign button properties
-            percentBtn.Content = "%";
+            deleteBtn.Content = "Del";
 
 
             cherryModel._numericalBtns.Insert(3, plusBtn);
@@ -119,9 +119,8 @@ namespace CherryCalc
             cherryModel._numericalBtns.Insert(15, divideBtn);
             cherryModel._numericalBtns.Insert(16, clearBtn);
             cherryModel._numericalBtns.Insert(17, toThePowerBtn);
-            cherryModel._numericalBtns.Insert(18, percentBtn);
-            cherryModel._numericalBtns.Insert(19, sqrtBtn);
-
+            cherryModel._numericalBtns.Insert(18, sqrtBtn);
+            cherryModel._numericalBtns.Insert(19, deleteBtn);
 
         }
 
@@ -147,7 +146,7 @@ namespace CherryCalc
         public void Button_Click(object sender, RoutedEventArgs e)
         {
             
-            if (sender is Button btn)
+            if (e.Source is Button btn)
             {
 
 
@@ -169,8 +168,7 @@ namespace CherryCalc
                     case "x":
                     case "÷":
                     case "√":
-                    case "xⁿ":
-                    case "%":
+                    case ".":
                         InOutField.Text += btn.Content;
                         break;
                     case "Execute":
@@ -192,10 +190,51 @@ namespace CherryCalc
                             InOutField.Text = sumView;
                         }
 
+                        else if (InOutField.Text.Contains("x"))
+                        {
+                            string[] numParameters = InOutField.Text.Split('x');
+                            double[] doubleParam = Array.ConvertAll(numParameters, double.Parse);
+                            double product = doubleParam[0] * doubleParam[1];
+                            string productView = product.ToString();
+                            InOutField.Text = productView;
+                        }
+
+                        else if (InOutField.Text.Contains("÷"))
+                        {
+                            string[] numParameters = InOutField.Text.Split('÷');
+                            double[] doubleParam = Array.ConvertAll(numParameters, double.Parse);
+                            double quotient = doubleParam[0] / doubleParam[1];
+                            string quotientView = quotient.ToString();
+                            InOutField.Text = quotientView;
+                        }
+
+                        else if (InOutField.Text.Contains("^"))
+                        {
+                            string[] numParameters = InOutField.Text.Split('^');
+                            double[] doubleParam = Array.ConvertAll(numParameters, double.Parse);
+                            double product = Math.Pow(doubleParam[0], doubleParam[1]);
+                            string productView = product.ToString();
+                            InOutField.Text = productView;
+                        }
+
                         break;
                     case "C":
                         InOutField.Text = "";
                         break;
+                    case "Del":
+                        if (InOutField.Text.Length < 1)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            InOutField.Text = InOutField.Text.Remove(InOutField.Text.Length - 1);
+                            break;
+                        }
+                    case "xⁿ":
+                        InOutField.Text += "^";
+                        break;
+
                     default:
                         break;
                 }
