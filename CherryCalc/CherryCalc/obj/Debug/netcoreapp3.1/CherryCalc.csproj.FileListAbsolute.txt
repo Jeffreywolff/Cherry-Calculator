@@ -17,3 +17,22 @@ C:\Users\Jeffrey.wolff\Documents\GitHub\Cherry-Calculator\CherryCalc\CherryCalc\
 C:\Users\Jeffrey.wolff\Documents\GitHub\Cherry-Calculator\CherryCalc\CherryCalc\obj\Debug\netcoreapp3.1\CherryCalc.dll
 C:\Users\Jeffrey.wolff\Documents\GitHub\Cherry-Calculator\CherryCalc\CherryCalc\obj\Debug\netcoreapp3.1\CherryCalc.pdb
 C:\Users\Jeffrey.wolff\Documents\GitHub\Cherry-Calculator\CherryCalc\CherryCalc\obj\Debug\netcoreapp3.1\CherryCalc.genruntimeconfig.cache
+C:\Users\Wolff\OneDrive\Dokument\Github Repos\School\Cherry-Calculator\CherryCalc\CherryCalc\bin\Debug\netcoreapp3.1\CherryCalc.exe
+C:\Users\Wolff\OneDrive\Dokument\Github Repos\School\Cherry-Calculator\CherryCalc\CherryCalc\bin\Debug\netcoreapp3.1\CherryCalc.deps.json
+C:\Users\Wolff\OneDrive\Dokument\Github Repos\School\Cherry-Calculator\CherryCalc\CherryCalc\bin\Debug\netcoreapp3.1\CherryCalc.runtimeconfig.json
+C:\Users\Wolff\OneDrive\Dokument\Github Repos\School\Cherry-Calculator\CherryCalc\CherryCalc\bin\Debug\netcoreapp3.1\CherryCalc.runtimeconfig.dev.json
+C:\Users\Wolff\OneDrive\Dokument\Github Repos\School\Cherry-Calculator\CherryCalc\CherryCalc\bin\Debug\netcoreapp3.1\CherryCalc.dll
+C:\Users\Wolff\OneDrive\Dokument\Github Repos\School\Cherry-Calculator\CherryCalc\CherryCalc\bin\Debug\netcoreapp3.1\CherryCalc.pdb
+C:\Users\Wolff\OneDrive\Dokument\Github Repos\School\Cherry-Calculator\CherryCalc\CherryCalc\obj\Debug\netcoreapp3.1\CherryCalc.csprojAssemblyReference.cache
+C:\Users\Wolff\OneDrive\Dokument\Github Repos\School\Cherry-Calculator\CherryCalc\CherryCalc\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+C:\Users\Wolff\OneDrive\Dokument\Github Repos\School\Cherry-Calculator\CherryCalc\CherryCalc\obj\Debug\netcoreapp3.1\App.g.cs
+C:\Users\Wolff\OneDrive\Dokument\Github Repos\School\Cherry-Calculator\CherryCalc\CherryCalc\obj\Debug\netcoreapp3.1\CherryCalc_MarkupCompile.cache
+C:\Users\Wolff\OneDrive\Dokument\Github Repos\School\Cherry-Calculator\CherryCalc\CherryCalc\obj\Debug\netcoreapp3.1\CherryCalc_MarkupCompile.lref
+C:\Users\Wolff\OneDrive\Dokument\Github Repos\School\Cherry-Calculator\CherryCalc\CherryCalc\obj\Debug\netcoreapp3.1\MainWindow.baml
+C:\Users\Wolff\OneDrive\Dokument\Github Repos\School\Cherry-Calculator\CherryCalc\CherryCalc\obj\Debug\netcoreapp3.1\CherryCalc.g.resources
+C:\Users\Wolff\OneDrive\Dokument\Github Repos\School\Cherry-Calculator\CherryCalc\CherryCalc\obj\Debug\netcoreapp3.1\CherryCalc.AssemblyInfoInputs.cache
+C:\Users\Wolff\OneDrive\Dokument\Github Repos\School\Cherry-Calculator\CherryCalc\CherryCalc\obj\Debug\netcoreapp3.1\CherryCalc.AssemblyInfo.cs
+C:\Users\Wolff\OneDrive\Dokument\Github Repos\School\Cherry-Calculator\CherryCalc\CherryCalc\obj\Debug\netcoreapp3.1\CherryCalc.csproj.CoreCompileInputs.cache
+C:\Users\Wolff\OneDrive\Dokument\Github Repos\School\Cherry-Calculator\CherryCalc\CherryCalc\obj\Debug\netcoreapp3.1\CherryCalc.dll
+C:\Users\Wolff\OneDrive\Dokument\Github Repos\School\Cherry-Calculator\CherryCalc\CherryCalc\obj\Debug\netcoreapp3.1\CherryCalc.pdb
+C:\Users\Wolff\OneDrive\Dokument\Github Repos\School\Cherry-Calculator\CherryCalc\CherryCalc\obj\Debug\netcoreapp3.1\CherryCalc.genruntimeconfig.cache

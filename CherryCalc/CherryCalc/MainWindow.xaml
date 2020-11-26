@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CherryCalc"
         mc:Ignorable="d"
-        Title="MainWindow" Height="620" Width="400">
+        Title="Simple Calculator" Height="620" Width="400" Icon="/Calculator-icon.png">
+    
+    
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Background" Value="#1E202A"></Setter>

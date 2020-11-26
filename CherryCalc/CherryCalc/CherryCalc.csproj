@@ -4,6 +4,16 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Calculator-icon.ico</ApplicationIcon>
+    <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Calculator-icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Calculator-icon.png" />
+  </ItemGroup>
 
 </Project>
