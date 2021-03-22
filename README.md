@@ -1,5 +1,5 @@
 # Cherry-Calculator
-A repository for a calculator.
+A calculator app.
 Can make basic operations:
     * Addition
     * Subtraction
